@@ -1,0 +1,21 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+header {
+  background: linear-gradient(to right, #1f2e4c, #3ccfcf);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 170px;
+}
