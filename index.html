@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taha Tarkhani — Software Engineer</title>
+<meta name="description" content="Software engineering student building backend systems, from defense infrastructure to distributed tracing tools. Based in Ottawa, ON.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F1F3EF;
+    --ink: #14191F;
+    --muted: #5B6570;
+    --line: #D7DBD3;
+    --accent: #B8843A;
+    --status: #4C7A5E;
+    --max-width: 720px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 100px 0 56px;
+  }
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-weight: 600;
+    margin: 0 0 22px;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .hero p.lede {
+    font-size: 1.15rem;
+    max-width: 54ch;
+    margin: 0 0 20px;
+  }
+  .hero p.bio {
+    font-size: 0.98rem;
+    color: var(--muted);
+    max-width: 58ch;
+    margin: 0 0 36px;
+  }
+  .links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .links a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* Projects */
+  .projects { border-top: 1px solid var(--line); }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 0;
+    padding-top: 34px;
+  }
+  .project-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .project-row:last-child { border-bottom: none; }
+  .project-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .project-head h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--status);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--status);
+  }
+  .project-desc {
+    max-width: 56ch;
+    margin: 0 0 14px;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tags span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+  .sketch { color: var(--accent); width: 110px; height: 56px; flex-shrink: 0; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 60px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  @media (max-width: 640px) {
+    .project-row { grid-template-columns: 1fr; }
+    .sketch { width: 90px; height: 46px; margin-top: 4px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="hero">
+    <h1>Taha Tarkhani</h1>
+    <p class="lede">Software engineering student building backend systems — from defense space-operations infrastructure to distributed tracing tools.</p>
+    <p class="bio">Currently at the University of Ottawa. Previously shipped full-stack features for a military space-situational-awareness platform at National Defence Canada, and built research data pipelines at the National Research Council. Based in Ottawa, ON.</p>
+    <div class="links">
+      <a href="https://github.com/ttarkhani">GitHub</a>
+      <a href="https://linkedin.com/in/ttarkhani">LinkedIn</a>
+      <a href="mailto:ttarkhani111@gmail.com">Email</a>
+    </div>
+  </header>
+
+  <section class="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project-row">
+      <div>
+        <div class="project-head">
+          <h2>Request Tracer</h2>
+          <span class="status">Building</span>
+        </div>
+        <p class="project-desc">A distributed tracing tool that tags requests with correlation IDs across microservices, reconstructing a request's full path for debugging — a scoped-down version of tools like Jaeger.</p>
+        <div class="tags">
+          <span>Java</span><span>Spring Boot</span><span>React</span><span>Docker</span>
+        </div>
+      </div>
+      <svg class="sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
+        <line x1="8" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line x1="22" y1="30" x2="112" y2="30" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+        <line x1="36" y1="48" x2="66" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <div class="project-row">
+      <div>
+        <div class="project-head">
+          <h2>Orbit Tracker</h2>
+          <span class="status">Building</span>
+        </div>
+        <p class="project-desc">A satellite tracking tool that pulls live orbital data and computes real-time positions, visualizing satellites and upcoming passes on an interactive 3D globe.</p>
+        <div class="tags">
+          <span>Python</span><span>three.js</span><span>SGP4</span>
+        </div>
+      </div>
+      <svg class="sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
+        <ellipse cx="60" cy="30" rx="48" ry="19" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="60" cy="30" r="4" fill="currentColor" opacity="0.35"/>
+        <circle cx="60" cy="11" r="3.2" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="project-row">
+      <div>
+        <div class="project-head">
+          <h2>Cost Monitor</h2>
+          <span class="status">Building</span>
+        </div>
+        <p class="project-desc">A cloud cost dashboard that aggregates AWS billing data and flags spending anomalies, built on a real AWS account rather than sample data.</p>
+        <div class="tags">
+          <span>Python</span><span>Flask</span><span>AWS</span><span>DynamoDB</span>
+        </div>
+      </div>
+      <svg class="sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
+        <polyline points="8,46 28,32 46,38 64,20 82,24 100,14 112,16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+      </svg>
+    </div>
+
+  </section>
+
+  <footer>
+    <span>© 2026 Taha Tarkhani</span>
+    <a href="mailto:ttarkhani111@gmail.com">ttarkhani111@gmail.com</a>
+  </footer>
+
+</main>
+</body>
+</html>
