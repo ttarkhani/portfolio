@@ -76,6 +76,18 @@
   }
   .links a:hover { color: var(--accent); border-color: var(--accent); }
 
+  .project-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    white-space: nowrap;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .project-link:hover { color: var(--accent); border-color: var(--accent); }
+
   /* Projects */
   .projects { border-top: 1px solid var(--line); }
   .section-title {
@@ -207,11 +219,11 @@
       <div>
         <div class="project-head">
           <h2>Orbit Tracker</h2>
-          <span class="status">Building</span>
+          <a class="project-link" href="https://github.com/ttarkhani/orbit-tracker">View on GitHub</a>
         </div>
-        <p class="project-desc">A satellite tracking tool that pulls live orbital data and computes real-time positions, visualizing satellites and upcoming passes on an interactive 3D globe.</p>
+        <p class="project-desc">Tracks 30 live satellites in real time using SGP4 propagation via Skyfield, visualizing positions and predicting passes on an interactive 3D globe. Validated against known orbital data — GOES-16's computed altitude landed within 0.02% of its true geostationary orbit — with caching cutting repeat fetches from 2.43s to under 10ms.</p>
         <div class="tags">
-          <span>Python</span><span>three.js</span><span>SGP4</span>
+          <span>Python</span><span>Flask</span><span>Skyfield</span><span>globe.gl</span>
         </div>
       </div>
       <svg class="sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
