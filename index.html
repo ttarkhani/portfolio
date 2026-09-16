@@ -17,264 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --paper: #F1F3EF;
-    --ink: #14191F;
-    --muted: #5B6570;
-    --line: #D7DBD3;
-    --accent: #B8843A;
-    --status: #4C7A5E;
-    --max-width: 720px;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #15181B;
-      --ink: #ECEDE9;
-      --muted: #9BA3AA;
-      --line: #2B3034;
-      --accent: #CDA05E;
-      --status: #6FA688;
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #15181B;
-    --ink: #ECEDE9;
-    --muted: #9BA3AA;
-    --line: #2B3034;
-    --accent: #CDA05E;
-    --status: #6FA688;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'IBM Plex Sans', system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-
-  .wrap {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  /* Site header */
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: var(--paper);
-    border-bottom: 1px solid var(--line);
-    backdrop-filter: blur(6px);
-  }
-  .site-header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 24px;
-  }
-  .site-header-name {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-  }
-  .site-header-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .header-link {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 1px;
-    transition: border-color 0.15s ease, color 0.15s ease;
-  }
-  .header-link:hover { color: var(--accent); border-color: var(--accent); }
-  .theme-toggle {
-    background: none;
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    width: 30px;
-    height: 30px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--ink);
-    padding: 0;
-    transition: border-color 0.15s ease, color 0.15s ease;
-  }
-  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
-
-  /* Hero */
-  .hero {
-    padding: 72px 0 56px;
-  }
-  .hero-photo {
-    width: 140px;
-    height: 140px;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    object-fit: cover;
-    display: block;
-    margin-bottom: 24px;
-  }
-  .hero h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
-    font-weight: 600;
-    margin: 0 0 22px;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-  }
-  .hero p.lede {
-    font-size: 1.15rem;
-    max-width: 54ch;
-    margin: 0 0 20px;
-  }
-  .hero p.bio {
-    font-size: 0.98rem;
-    color: var(--muted);
-    max-width: 58ch;
-    margin: 0 0 36px;
-  }
-  .links {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .links a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 14px;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 2px;
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-  .links a:hover { color: var(--accent); border-color: var(--accent); }
-
-  .project-link {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 2px;
-    white-space: nowrap;
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-  .project-link:hover { color: var(--accent); border-color: var(--accent); }
-
-  /* Projects */
-  .projects { border-top: 1px solid var(--line); }
-  .section-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--muted);
-    margin: 0;
-    padding-top: 34px;
-  }
-  .project-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    align-items: start;
-    padding: 36px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .project-row:last-child { border-bottom: none; }
-  .project-head {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-  }
-  .project-head h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin: 0;
-  }
-  .project-desc {
-    max-width: 56ch;
-    margin: 0 0 14px;
-  }
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .tags span {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--muted);
-    border: 1px solid var(--line);
-    padding: 3px 9px;
-    border-radius: 3px;
-  }
-  .sketch { color: var(--accent); width: 110px; height: 56px; flex-shrink: 0; overflow: visible; }
-
-  /* Sketch animations, tied to what each project actually does */
-  .tracer-sketch line {
-    stroke-dasharray: 120;
-    stroke-dashoffset: 120;
-    transition: stroke-dashoffset 0.5s ease;
-  }
-  .project-row:hover .tracer-sketch .bar1 { stroke-dashoffset: 0; transition-delay: 0s; }
-  .project-row:hover .tracer-sketch .bar2 { stroke-dashoffset: 0; transition-delay: 0.12s; }
-  .project-row:hover .tracer-sketch .bar3 { stroke-dashoffset: 0; transition-delay: 0.24s; }
-
-  .cost-sketch polyline {
-    stroke-dasharray: 220;
-    stroke-dashoffset: 220;
-    transition: stroke-dashoffset 0.9s ease;
-  }
-  .project-row:hover .cost-sketch polyline { stroke-dashoffset: 0; }
-
-  /* Footer */
-  footer {
-    border-top: 1px solid var(--line);
-    padding: 28px 0 60px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    color: var(--muted);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  footer a { color: var(--muted); }
-
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-
-  @media (max-width: 640px) {
-    .project-row { grid-template-columns: 1fr; }
-    .sketch { width: 90px; height: 46px; margin-top: 4px; }
-    .site-header-inner { padding: 12px 20px; }
-    .hero-photo { width: 104px; height: 104px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    * { transition: none !important; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -282,6 +25,7 @@
   <div class="site-header-inner wrap">
     <span class="site-header-name">Taha Tarkhani</span>
     <div class="site-header-actions">
+      <a href="#experience" class="header-link">Experience</a>
       <a href="#projects" class="header-link">Projects</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" type="button"></button>
     </div>
@@ -296,68 +40,93 @@
     <p class="lede">Software engineering student building backend systems — from defense space-operations infrastructure to distributed tracing tools.</p>
     <p class="bio">Currently at the University of Ottawa. Previously shipped full-stack features for a military space-situational-awareness platform at National Defence Canada, and built research data pipelines at the National Research Council. Based in Ottawa, ON.</p>
     <div class="links">
-      <a href="tahatarkhaniresume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="tahatarkhaniresume.pdf" class="resume-trigger">Resume</a>
       <a href="https://github.com/ttarkhani">GitHub</a>
       <a href="https://linkedin.com/in/ttarkhani">LinkedIn</a>
       <a href="mailto:ttarkhani111@gmail.com" id="email-link">Email</a>
     </div>
   </header>
 
+  <section class="experience" id="experience">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="tab-row" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-target="exp-dnd" type="button">National Defence Canada</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-target="exp-nrc" type="button">National Research Council</button>
+    </div>
+
+    <div class="tab-panel active" role="tabpanel" id="exp-dnd">
+      <h3>Software Engineer Intern</h3>
+      <span class="tab-meta">Sep 2025 – Dec 2025 &amp; May 2026 – Aug 2026 · Ottawa, ON</span>
+      <ul class="tab-list">
+        <li>Built full-stack features for Space-COP platform serving military analysts tracking space operations, delivering real-time data with sub-200ms response times to end users.</li>
+        <li>Accelerated release cycle by 45% by designing and implementing automated CI/CD pipelines, enabling daily deployments while maintaining 99.7% uptime for critical defense operations.</li>
+        <li>Improved code reliability by increasing test coverage from 32% to 78% through comprehensive JUnit and integration tests, preventing mission-critical bugs before production.</li>
+        <li>Partnered with military analysts, infrastructure teams, and security specialists to harden the platform, ensure government compliance standards, and modernize legacy system components.</li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" role="tabpanel" id="exp-nrc">
+      <h3>Data Analyst Intern</h3>
+      <span class="tab-meta">Jan 2025 – Apr 2025 · Ottawa, ON</span>
+      <ul class="tab-list">
+        <li>Automated data processing with Python scripts for scientific research datasets (PostgreSQL/MySQL), reducing manual data entry time by 70% through ETL workflows at scale.</li>
+        <li>Designed the data pipeline's technical architecture, implementing SQL query optimization, error handling, and validation checks that enabled clean, seamless integration with downstream analytics tools.</li>
+        <li>Partnered with research teams to validate data quality and formalize ETL process documentation, improving pipeline reliability and easing knowledge transfer for future team members.</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="projects" id="projects">
     <h2 class="section-title">Projects</h2>
 
-    <div class="project-row">
-      <div>
-        <div class="project-head">
-          <h2>Request Tracer</h2>
+    <div class="tab-row" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-target="proj-tracer" type="button">Request Tracer</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-target="proj-orbit" type="button">Orbit Tracker</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-target="proj-cost" type="button">Cost Monitor</button>
+    </div>
+
+    <div class="tab-panel active" role="tabpanel" id="proj-tracer">
+      <div class="project-body">
+        <div>
           <a class="project-link" href="https://github.com/ttarkhani/request-tracer">View on GitHub</a>
+          <p class="project-desc">Built a distributed tracing system with automatic correlation ID propagation across 4 Spring Boot services, a centralized log aggregator, and a React dashboard rendering live traces as a waterfall timeline. Containerized the full system as 5 Docker images orchestrated via Docker Compose, with real end-to-end latency isolating a one-time 1565ms cold-start from a stable 64-119ms steady state.</p>
+          <div class="tags"><span>Java</span><span>Spring Boot</span><span>React</span><span>Docker</span></div>
         </div>
-        <p class="project-desc">Built a distributed tracing system with automatic correlation ID propagation across 4 Spring Boot services, a centralized log aggregator, and a React dashboard rendering live traces as a waterfall timeline. Containerized the full system as 5 Docker images orchestrated via Docker Compose, with real end-to-end latency isolating a one-time 1565ms cold-start from a stable 64-119ms steady state.</p>
-        <div class="tags">
-          <span>Java</span><span>Spring Boot</span><span>React</span><span>Docker</span>
-        </div>
+        <svg class="sketch tracer-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
+          <line class="bar1" x1="8" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <line class="bar2" x1="22" y1="30" x2="112" y2="30" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+          <line class="bar3" x1="36" y1="48" x2="66" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+        </svg>
       </div>
-      <svg class="sketch tracer-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
-        <line class="bar1" x1="8" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        <line class="bar2" x1="22" y1="30" x2="112" y2="30" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
-        <line class="bar3" x1="36" y1="48" x2="66" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
-      </svg>
     </div>
 
-    <div class="project-row">
-      <div>
-        <div class="project-head">
-          <h2>Orbit Tracker</h2>
+    <div class="tab-panel" role="tabpanel" id="proj-orbit">
+      <div class="project-body">
+        <div>
           <a class="project-link" href="https://github.com/ttarkhani/orbit-tracker">View on GitHub</a>
+          <p class="project-desc">Tracks 30 live satellites in real time using SGP4 propagation via Skyfield, visualizing positions and predicting passes on an interactive 3D globe. Validated against known orbital data — GOES-16's computed altitude landed within 0.02% of its true geostationary orbit — with caching cutting repeat fetches from 2.43s to under 10ms.</p>
+          <div class="tags"><span>Python</span><span>Flask</span><span>Skyfield</span><span>globe.gl</span></div>
         </div>
-        <p class="project-desc">Tracks 30 live satellites in real time using SGP4 propagation via Skyfield, visualizing positions and predicting passes on an interactive 3D globe. Validated against known orbital data — GOES-16's computed altitude landed within 0.02% of its true geostationary orbit — with caching cutting repeat fetches from 2.43s to under 10ms.</p>
-        <div class="tags">
-          <span>Python</span><span>Flask</span><span>Skyfield</span><span>globe.gl</span>
-        </div>
+        <svg class="sketch orbit-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
+          <ellipse cx="60" cy="30" rx="48" ry="19" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="60" cy="30" r="4" fill="currentColor" opacity="0.35"/>
+          <circle class="orbit-dot" r="3.2" fill="currentColor"/>
+        </svg>
       </div>
-      <svg class="sketch orbit-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
-        <ellipse cx="60" cy="30" rx="48" ry="19" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-        <circle cx="60" cy="30" r="4" fill="currentColor" opacity="0.35"/>
-        <circle r="3.2" fill="currentColor">
-          <animateMotion dur="7s" repeatCount="indefinite" path="M 108,30 A 48,19 0 1,1 12,30 A 48,19 0 1,1 108,30" />
-        </circle>
-      </svg>
     </div>
 
-    <div class="project-row">
-      <div>
-        <div class="project-head">
-          <h2>Cost Monitor</h2>
+    <div class="tab-panel" role="tabpanel" id="proj-cost">
+      <div class="project-body">
+        <div>
           <a class="project-link" href="https://github.com/ttarkhani/cost-monitor">View on GitHub</a>
+          <p class="project-desc">An AWS cost monitoring dashboard that ingests billing data via the Cost Explorer API and persists daily snapshots in DynamoDB. Anomaly detection was validated against test data — correctly distinguishing a 2.9% fluctuation from an 83.2% spike — with an in-memory cache achieving 0.0ms cache-hit response times.</p>
+          <div class="tags"><span>Python</span><span>Flask</span><span>AWS Cost Explorer</span><span>DynamoDB</span></div>
         </div>
-        <p class="project-desc">An AWS cost monitoring dashboard that ingests billing data via the Cost Explorer API and persists daily snapshots in DynamoDB. Anomaly detection was validated against test data — correctly distinguishing a 2.9% fluctuation from an 83.2% spike — with an in-memory cache achieving 0.0ms cache-hit response times.</p>
-        <div class="tags">
-          <span>Python</span><span>Flask</span><span>AWS Cost Explorer</span><span>DynamoDB</span>
-        </div>
+        <svg class="sketch cost-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
+          <polyline points="8,46 28,32 46,38 64,20 82,24 100,14 112,16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+        </svg>
       </div>
-      <svg class="sketch cost-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
-        <polyline points="8,46 28,32 46,38 64,20 82,24 100,14 112,16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-      </svg>
     </div>
 
   </section>
@@ -369,53 +138,20 @@
 
 </main>
 
-<script>
-(function() {
-  var root = document.documentElement;
-  var toggle = document.getElementById('theme-toggle');
-  var sunIcon = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.1" y1="5.1" x2="6.8" y2="6.8"/><line x1="17.2" y1="17.2" x2="18.9" y2="18.9"/><line x1="5.1" y1="18.9" x2="6.8" y2="17.2"/><line x1="17.2" y1="6.8" x2="18.9" y2="5.1"/></svg>';
-  var moonIcon = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>';
+<div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Resume viewer">
+  <div class="resume-modal-inner">
+    <div class="resume-modal-header">
+      <span>Resume</span>
+      <div class="resume-modal-actions">
+        <a href="tahatarkhaniresume.pdf" download class="resume-download-btn">Download</a>
+        <button class="resume-modal-close" id="resumeModalClose" aria-label="Close resume viewer" type="button">✕</button>
+      </div>
+    </div>
+    <iframe id="resumeIframe" class="resume-iframe" title="Taha Tarkhani Resume"></iframe>
+  </div>
+</div>
 
-  function currentTheme() {
-    var attr = root.getAttribute('data-theme');
-    if (attr) return attr;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-
-  function renderIcon() {
-    if (!toggle) return;
-    toggle.innerHTML = currentTheme() === 'dark' ? moonIcon : sunIcon;
-  }
-
-  renderIcon();
-
-  if (toggle) {
-    toggle.addEventListener('click', function() {
-      var next = currentTheme() === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
-      renderIcon();
-    });
-  }
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('animateMotion').forEach(function(el) { el.remove(); });
-  }
-
-  var emailLink = document.getElementById('email-link');
-  if (emailLink) {
-    emailLink.addEventListener('click', function() {
-      var email = 'ttarkhani111@gmail.com';
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(email).catch(function() {});
-      }
-      var original = emailLink.textContent;
-      emailLink.textContent = 'Copied!';
-      setTimeout(function() { emailLink.textContent = original; }, 1500);
-    });
-  }
-})();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
