@@ -122,6 +122,15 @@
   .hero {
     padding: 72px 0 56px;
   }
+  .hero-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    object-fit: cover;
+    display: block;
+    margin-bottom: 24px;
+  }
   .hero h1 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2.4rem, 6vw, 3.6rem);
@@ -257,6 +266,7 @@
     .project-row { grid-template-columns: 1fr; }
     .sketch { width: 90px; height: 46px; margin-top: 4px; }
     .site-header-inner { padding: 12px 20px; }
+    .hero-photo { width: 104px; height: 104px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -280,10 +290,12 @@
 <main class="wrap">
 
   <header class="hero">
+    <img src="IMG_8437.jpeg" alt="Taha Tarkhani" class="hero-photo">
     <h1>Taha Tarkhani</h1>
     <p class="lede">Software engineering student building backend systems — from defense space-operations infrastructure to distributed tracing tools.</p>
     <p class="bio">Currently at the University of Ottawa. Previously shipped full-stack features for a military space-situational-awareness platform at National Defence Canada, and built research data pipelines at the National Research Council. Based in Ottawa, ON.</p>
     <div class="links">
+      <a href="tahatarkhaniresume.pdf" target="_blank" rel="noopener">Resume</a>
       <a href="https://github.com/ttarkhani">GitHub</a>
       <a href="https://linkedin.com/in/ttarkhani">LinkedIn</a>
       <a href="mailto:ttarkhani111@gmail.com" id="email-link">Email</a>
