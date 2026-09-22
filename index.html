@@ -51,18 +51,29 @@
     <h2 class="section-title">Experience</h2>
 
     <div class="tab-row" role="tablist">
-      <button class="tab-btn active" role="tab" aria-selected="true" data-target="exp-dnd" type="button">National Defence Canada</button>
+      <button class="tab-btn active" role="tab" aria-selected="true" data-target="exp-dnd-2026" type="button">National Defence (2026)</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-target="exp-dnd-2025" type="button">National Defence (2025)</button>
       <button class="tab-btn" role="tab" aria-selected="false" data-target="exp-nrc" type="button">National Research Council</button>
     </div>
 
-    <div class="tab-panel active" role="tabpanel" id="exp-dnd">
+    <div class="tab-panel active" role="tabpanel" id="exp-dnd-2026">
       <h3>Software Engineer Intern</h3>
-      <span class="tab-meta">Sep 2025 – Dec 2025 &amp; May 2026 – Aug 2026 · Ottawa, ON</span>
+      <span class="tab-meta">May 2026 – Aug 2026 · Ottawa, ON</span>
       <ul class="tab-list">
         <li>Built full-stack features for Space-COP platform serving military analysts tracking space operations, delivering real-time data with sub-200ms response times to end users.</li>
+        <li>Rebuilt a sequential satellite tracking feed parser in Java using a bounded ThreadPoolExecutor and in-memory queue, cutting batch ingest time for 12K records from 6.5 minutes to 95 seconds.</li>
         <li>Accelerated release cycle by 45% by designing and implementing automated CI/CD pipelines, enabling daily deployments while maintaining 99.7% uptime for critical defense operations.</li>
         <li>Improved code reliability by increasing test coverage from 32% to 78% through comprehensive JUnit and integration tests, preventing mission-critical bugs before production.</li>
-        <li>Partnered with military analysts, infrastructure teams, and security specialists to harden the platform, ensure government compliance standards, and modernize legacy system components.</li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" role="tabpanel" id="exp-dnd-2025">
+      <h3>Software Engineer Intern</h3>
+      <span class="tab-meta">Sep 2025 – Dec 2025 · Ottawa, ON</span>
+      <ul class="tab-list">
+        <li>Optimized PostgreSQL query performance for satellite tracking data with composite indexes and monthly table partitioning, reducing peak query execution time from 1,800ms to 210ms.</li>
+        <li>Migrated the team off manual deployments by building a multi-stage GitLab CI/Docker pipeline, cutting deployment turnaround from 25 minutes to an automated 8-minute process.</li>
+        <li>Expanded ingest module test coverage from 18% to 62% using JUnit 5 and Testcontainers for PostgreSQL integration tests, catching coordinate-wraparound bugs before staging.</li>
       </ul>
     </div>
 
@@ -105,7 +116,7 @@
       <div class="project-body">
         <div>
           <a class="project-link" href="https://github.com/ttarkhani/orbit-tracker">View on GitHub</a>
-          <p class="project-desc">Tracks 30 live satellites in real time using SGP4 propagation via Skyfield, visualizing positions and predicting passes on an interactive 3D globe. Validated against known orbital data — GOES-16's computed altitude landed within 0.02% of its true geostationary orbit — with caching cutting repeat fetches from 2.43s to under 10ms.</p>
+          <p class="project-desc">Tracks 30 live satellites in real time using SGP4 propagation via Skyfield, visualizing positions and predicting passes on an interactive 3D globe. Validated against known orbital data — GOES-16's computed altitude landed within 0.02% of its true geostationary orbit — with caching cutting repeat fetches from 2.43s to under 10ms, and a pass-prediction API finding 84 upcoming passes in 106.6ms.</p>
           <div class="tags"><span>Python</span><span>Flask</span><span>Skyfield</span><span>globe.gl</span></div>
         </div>
         <svg class="sketch orbit-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
