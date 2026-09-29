@@ -60,10 +60,10 @@
       <h3>Software Engineer Intern</h3>
       <span class="tab-meta">May 2026 – Aug 2026 · Ottawa, ON</span>
       <ul class="tab-list">
-        <li>Built full-stack features for Space-COP platform serving military analysts tracking space operations, delivering real-time data with sub-200ms response times to end users.</li>
-        <li>Rebuilt a sequential satellite tracking feed parser in Java using a bounded ThreadPoolExecutor and in-memory queue, cutting batch ingest time for 12K records from 6.5 minutes to 95 seconds.</li>
-        <li>Accelerated release cycle by 45% by designing and implementing automated CI/CD pipelines, enabling daily deployments while maintaining 99.7% uptime for critical defense operations.</li>
-        <li>Improved code reliability by increasing test coverage from 32% to 78% through comprehensive JUnit and integration tests, preventing mission-critical bugs before production.</li>
+        <li>Built a Java/Spring Boot service streaming live orbital telemetry over WebSockets to 200+ concurrent analysts, sustaining sub-150ms end-to-end latency at 500+ updates/sec.</li>
+        <li>Accelerated a sequential satellite-tracking feed parser using a bounded ThreadPoolExecutor and in-memory queue, reducing 12K-record batch ingestion from 6.5 minutes to 95 seconds.</li>
+        <li>Implemented Redis caching for high-traffic ground-station API endpoints, decreasing p99 latency from 709ms to under 100ms while offloading repeat reads from the database.</li>
+        <li>Shipped React/TypeScript features for Space-COP, a military space dashboard: a Portal Requests card, a multi-view fullscreen mode, and 3 reusable filter components.</li>
       </ul>
     </div>
 
@@ -71,9 +71,9 @@
       <h3>Software Engineer Intern</h3>
       <span class="tab-meta">Sep 2025 – Dec 2025 · Ottawa, ON</span>
       <ul class="tab-list">
-        <li>Optimized PostgreSQL query performance for satellite tracking data with composite indexes and monthly table partitioning, reducing peak query execution time from 1,800ms to 210ms.</li>
-        <li>Migrated the team off manual deployments by building a multi-stage GitLab CI/Docker pipeline, cutting deployment turnaround from 25 minutes to an automated 8-minute process.</li>
-        <li>Expanded ingest module test coverage from 18% to 62% using JUnit 5 and Testcontainers for PostgreSQL integration tests, catching coordinate-wraparound bugs before staging.</li>
+        <li>Optimized PostgreSQL queries on satellite tracking data with composite indexes and monthly table partitioning, improving peak query execution time from 1,800ms to 210ms.</li>
+        <li>Automated the engineering team's deployments using a multi-stage GitLab CI/Docker pipeline, reducing a 25-minute manual release process to an 8-minute workflow.</li>
+        <li>Increased ingest-module test coverage from 18% to 62% using JUnit 5 and Testcontainers for PostgreSQL integration testing, catching coordinate-wraparound bugs before staging.</li>
       </ul>
     </div>
 
@@ -81,9 +81,9 @@
       <h3>Data Analyst Intern</h3>
       <span class="tab-meta">Jan 2025 – Apr 2025 · Ottawa, ON</span>
       <ul class="tab-list">
-        <li>Automated data processing with Python scripts for scientific research datasets (PostgreSQL/MySQL), reducing manual data entry time by 70% through ETL workflows at scale.</li>
-        <li>Designed the data pipeline's technical architecture, implementing SQL query optimization, error handling, and validation checks that enabled clean, seamless integration with downstream analytics tools.</li>
-        <li>Partnered with research teams to validate data quality and formalize ETL process documentation, improving pipeline reliability and easing knowledge transfer for future team members.</li>
+        <li>Improved slow analytical joins across a PostgreSQL/MySQL research pipeline, optimizing daily query execution from 42 to 8 minutes for 15+ researchers.</li>
+        <li>Decreased the team's manual data-entry workload by 70% by automating research-dataset processing via Python ETL scripts.</li>
+        <li>Designed schema validation guards that quarantined malformed records, cutting weekly pipeline reruns by 88%.</li>
       </ul>
     </div>
   </section>
@@ -92,16 +92,32 @@
     <h2 class="section-title">Projects</h2>
 
     <div class="tab-row" role="tablist">
-      <button class="tab-btn active" role="tab" aria-selected="true" data-target="proj-tracer" type="button">Request Tracer</button>
+      <button class="tab-btn active" role="tab" aria-selected="true" data-target="proj-lifts" type="button">Lifts</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-target="proj-tracer" type="button">Request Tracer</button>
       <button class="tab-btn" role="tab" aria-selected="false" data-target="proj-orbit" type="button">Orbit Tracker</button>
       <button class="tab-btn" role="tab" aria-selected="false" data-target="proj-cost" type="button">Cost Monitor</button>
     </div>
 
-    <div class="tab-panel active" role="tabpanel" id="proj-tracer">
+    <div class="tab-panel active" role="tabpanel" id="proj-lifts">
+      <div class="project-body">
+        <div>
+          <a class="project-link" href="https://lifts-mbjt.onrender.com/">View Live (2nd Place, Hack The Hill)</a>
+          <p class="project-desc">Launched a live peer-to-peer mentoring MVP mid-hackathon, driving organic adoption by 45+ teams to resolve technical blockers before the 36-hour deadline. Designed an append-only PostgreSQL/TimescaleDB ledger that records every state change, and secured private chats for 180+ users with Auth0 role-based access control (RBAC).</p>
+          <div class="tags"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>Auth0</span></div>
+        </div>
+        <svg class="sketch lifts-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
+          <rect x="25" y="15" width="30" height="20" rx="4" stroke="currentColor" stroke-width="2" />
+          <rect x="65" y="25" width="30" height="20" rx="4" stroke="currentColor" stroke-width="2" opacity="0.6" />
+          <path d="M55 25 L65 30" stroke="currentColor" stroke-width="2" stroke-dasharray="3" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="tab-panel" role="tabpanel" id="proj-tracer">
       <div class="project-body">
         <div>
           <a class="project-link" href="https://github.com/ttarkhani/request-tracer">View on GitHub</a>
-          <p class="project-desc">Built a distributed tracing system with automatic correlation ID propagation across 4 Spring Boot services, a centralized log aggregator, and a React dashboard rendering live traces as a waterfall timeline. Containerized the full system as 5 Docker images orchestrated via Docker Compose, with real end-to-end latency isolating a one-time 1565ms cold-start from a stable 64-119ms steady state.</p>
+          <p class="project-desc">Engineered end-to-end correlation-ID propagation across 4 Spring Boot services, ensuring Gateway, Orders, and Inventory logs share a unified trace ID in the Log Aggregator. Containerized the microservice architecture via Docker Compose and created a React dashboard to visualize live trace waterfall timelines, isolating a 1.6s cold-start anomaly.</p>
           <div class="tags"><span>Java</span><span>Spring Boot</span><span>React</span><span>Docker</span></div>
         </div>
         <svg class="sketch tracer-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
@@ -116,7 +132,7 @@
       <div class="project-body">
         <div>
           <a class="project-link" href="https://github.com/ttarkhani/orbit-tracker">View on GitHub</a>
-          <p class="project-desc">Tracks 30 live satellites in real time using SGP4 propagation via Skyfield, visualizing positions and predicting passes on an interactive 3D globe. Validated against known orbital data — GOES-16's computed altitude landed within 0.02% of its true geostationary orbit — with caching cutting repeat fetches from 2.43s to under 10ms, and a pass-prediction API finding 84 upcoming passes in 106.6ms.</p>
+          <p class="project-desc">Developed a Python service tracking 30 live satellites from CelesTrak data using Skyfield's SGP4 propagation, yielding positional accuracy within 0.02% of known GOES-16 altitudes. Built a pass-prediction REST API with an interactive globe front end (globe.gl), caching TLE data to accelerate repeat lookup times from 2.4s to under 10ms.</p>
           <div class="tags"><span>Python</span><span>Flask</span><span>Skyfield</span><span>globe.gl</span></div>
         </div>
         <svg class="sketch orbit-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">

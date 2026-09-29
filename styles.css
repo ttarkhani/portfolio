@@ -248,6 +248,13 @@ body {
   animation: drawLine 4s ease-in-out infinite;
 }
 
+@keyframes flowDash {
+  to { stroke-dashoffset: -8; }
+}
+.lifts-sketch path {
+  animation: flowDash 1s linear infinite;
+}
+
 /* Resume modal */
 .resume-modal {
   display: none;
@@ -331,5 +338,5 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
-  .tracer-sketch line, .cost-sketch polyline, .orbit-dot { animation: none !important; }
+  .tracer-sketch line, .cost-sketch polyline, .orbit-dot, .lifts-sketch path { animation: none !important; }
 }
