@@ -41,24 +41,19 @@
     });
   });
 
-  /* Resume viewer. Without JS (or <dialog>), the links open the PDF directly. */
-  var dialog = document.getElementById('resume-dialog');
-  if (dialog && typeof dialog.showModal === 'function') {
-    var frame = dialog.querySelector('iframe');
-    var opener = null;
-    document.querySelectorAll('[data-resume]').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-        e.preventDefault();
-        opener = link;
-        if (!frame.getAttribute('src')) frame.setAttribute('src', link.getAttribute('href'));
-        dialog.showModal();
-      });
-    });
-    dialog.querySelector('[data-close]').addEventListener('click', function () { dialog.close(); });
-    dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
-    dialog.addEventListener('close', function () { if (opener) opener.focus(); });
+  /* Resume: on wide screens swap the page image for the live PDF viewer.
+     Phones keep the image, since most mobile browsers can't show a PDF inline. */
+  var resumeView = document.querySelector('.resume-view');
+  var wide = window.matchMedia('(min-width: 760px)');
+  function syncResume() {
+    if (!resumeView) return;
+    var frame = resumeView.querySelector('iframe');
+    if (wide.matches && !frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src'));
+    frame.hidden = !wide.matches;
+    resumeView.classList.toggle('has-frame', wide.matches);
   }
+  syncResume();
+  wide.addEventListener('change', syncResume);
 
   /* Trace: move the "now" cursor to today, and grow the spans once on first view. */
   var trace = document.querySelector('.trace');

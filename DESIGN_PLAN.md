@@ -156,6 +156,18 @@ Skills, Education, Contact
 - **SEO:** title, description, canonical, OG/Twitter with a generated 1200×630 PNG,
   and JSON-LD `Person`.
 
+## Revisions after review (Sep 30, 2026)
+
+- Location preference is now Ottawa, Toronto and the Greater Toronto Area, or the United States.
+- The three hero metrics were removed. The numbers live only in the experience and project bullets.
+- The subtitle under Experience, the "All roles in Ottawa" footnote, the location note in the
+  "Next" row, and the Lifts free-tier hint were removed as noise.
+- Cost Monitor says it runs locally (setup in the repo) and will be deployed once it's ready.
+- The resume dialog was replaced by an inline **Resume** section. Wide screens show the live PDF in
+  an iframe. Phones (and no-JS) show `assets/img/resume-page.webp`, because most mobile browsers can't
+  render a PDF inline. Regenerate that image with `sh scripts/resume-preview.sh` whenever the PDF changes.
+- The portrait has an offset accent outline.
+
 ## Checked against the avoid list (what changed)
 
 1. My first draft of the dark theme used an **amber accent on near-black**. That is too close to
