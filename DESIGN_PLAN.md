@@ -163,9 +163,6 @@ Skills, Education, Contact
 - The subtitle under Experience, the "All roles in Ottawa" footnote, the location note in the
   "Next" row, and the Lifts free-tier hint were removed as noise.
 - Cost Monitor says it runs locally (setup in the repo) and will be deployed once it's ready.
-- The resume dialog was replaced by an inline **Resume** section. Wide screens show the live PDF in
-  an iframe. Phones (and no-JS) show `assets/img/resume-page.webp`, because most mobile browsers can't
-  render a PDF inline. Regenerate that image with `sh scripts/resume-preview.sh` whenever the PDF changes.
 - The portrait has an offset accent outline.
 
 ## Checked against the avoid list (what changed)
