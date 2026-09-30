@@ -2,8 +2,8 @@
 
 ## Point of view
 
-Taha builds the plumbing behind real-time systems: telemetry streams, caches, query
-plans, traces. The site should read like a well-made engineering tool. It should be
+Taha builds across the stack: real-time services, APIs, data pipelines, and the React
+interfaces on top. The site should read like a well-made engineering tool. It should be
 quiet, precise, and dense where density helps, and it should take its visual language from a
 trace viewer: a shared time axis, spans with durations, and log lines under each span.
 It uses one such device, carried out properly, and plain typography everywhere else.
@@ -72,9 +72,9 @@ Taha Tarkhani                         Experience  Projects  Skills   Resume  [th
 ─────────────────────────────────────────────────────────────────────────────────────
                                                                    ┌──────────┐
 Taha Tarkhani                         (condensed, huge)            │ portrait │
-Software engineering student building backend systems,             │  3:4     │
-from defense space-operations infrastructure to distributed        │          │
-tracing tools.                                                     │          │
+Software engineering student who builds across the stack:          │  3:4     │
+real-time systems, APIs and data pipelines, and the React          │          │
+interfaces on top.                                                 │          │
 Two internships at National Defence Canada ... NRC ... uOttawa.    └──────────┘
 ▌Open to Summer 2027 and Winter 2027 software internships and co-ops.
 ▌Ottawa, Toronto/GTA, or remote in Canada.
