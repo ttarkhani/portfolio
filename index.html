@@ -1,187 +1,350 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
-(function() {
-  try {
-    var stored = localStorage.getItem('theme');
-    if (stored) document.documentElement.setAttribute('data-theme', stored);
-  } catch (e) {}
-})();
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+    document.documentElement.classList.add('js');
+  })();
 </script>
-<title>Taha Tarkhani — Software Engineer</title>
+<title>Taha Tarkhani · Backend software engineering student, Ottawa</title>
+<meta name="description" content="Software engineering student at the University of Ottawa building backend systems: real-time telemetry, latency, tracing, and satellite tracking. Open to Summer 2027 and Winter 2027 internships and co-ops.">
+<link rel="canonical" href="https://tahat.dev/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F3F5F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F131A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="logo.webp" type="image/webp">
-<meta name="description" content="Software engineering student building backend systems, from defense infrastructure to distributed tracing tools. Based in Ottawa, ON.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://tahat.dev/">
+<meta property="og:title" content="Taha Tarkhani · Backend software engineering student">
+<meta property="og:description" content="Backend systems: real-time telemetry, latency, tracing, and satellite tracking. Open to Summer 2027 and Winter 2027 internships and co-ops.">
+<meta property="og:image" content="https://tahat.dev/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Taha Tarkhani, software engineering student building backend systems. Ottawa, ON.">
+<meta property="profile:first_name" content="Taha">
+<meta property="profile:last_name" content="Tarkhani">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Taha Tarkhani · Backend software engineering student">
+<meta name="twitter:description" content="Backend systems: real-time telemetry, latency, tracing, and satellite tracking. Open to Summer 2027 and Winter 2027 internships and co-ops.">
+<meta name="twitter:image" content="https://tahat.dev/assets/og.png">
+
+<link rel="preload" href="assets/fonts/plex-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Taha Tarkhani",
+  "url": "https://tahat.dev/",
+  "image": "https://tahat.dev/assets/img/portrait-720.webp",
+  "email": "mailto:ttarkhani111@gmail.com",
+  "jobTitle": "Software Engineering Student",
+  "description": "Software engineering student building backend systems, from defense space-operations infrastructure to distributed tracing tools.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Ottawa", "addressRegion": "ON", "addressCountry": "CA" },
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Ottawa" },
+  "knowsAbout": ["Java", "Spring Boot", "Python", "TypeScript", "PostgreSQL", "Redis", "Docker", "Distributed tracing", "Real-time data"],
+  "sameAs": ["https://github.com/ttarkhani", "https://www.linkedin.com/in/ttarkhani"]
+}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header">
-  <div class="site-header-inner wrap">
-    <span class="site-header-name">Taha Tarkhani</span>
-    <div class="site-header-actions">
-      <a href="#experience" class="header-link">Experience</a>
-      <a href="#projects" class="header-link">Projects</a>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" type="button"></button>
-    </div>
+  <div class="wrap site-header-inner">
+    <a class="brand" href="#top">Taha Tarkhani</a>
+    <nav aria-label="Sections">
+      <ul class="nav">
+        <li class="nav-section"><a href="#experience">Experience</a></li>
+        <li class="nav-section"><a href="#projects">Projects</a></li>
+        <li class="nav-section"><a href="#skills">Skills</a></li>
+        <li><a href="tahatarkhaniresume.pdf" data-resume>Resume</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false" hidden>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.25"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></g></svg>
+    </button>
   </div>
 </header>
 
-<main class="wrap">
+<main id="main" tabindex="-1">
 
-  <header class="hero">
-    <img src="IMG_8437.jpeg" alt="Taha Tarkhani" class="hero-photo">
-    <h1>Taha Tarkhani</h1>
-    <p class="lede">Software engineering student building backend systems — from defense space-operations infrastructure to distributed tracing tools.</p>
-    <p class="bio">Currently at the University of Ottawa. Previously shipped full-stack features for a military space-situational-awareness platform at National Defence Canada, and built research data pipelines at the National Research Council. Based in Ottawa, ON.</p>
-    <div class="links">
-      <a href="tahatarkhaniresume.pdf" class="resume-trigger">Resume</a>
-      <a href="https://github.com/ttarkhani">GitHub</a>
-      <a href="https://linkedin.com/in/ttarkhani">LinkedIn</a>
-      <a href="mailto:ttarkhani111@gmail.com" id="email-link">Email</a>
+  <section class="hero wrap" id="top" aria-labelledby="name">
+    <div class="hero-text">
+      <h1 id="name">Taha Tarkhani</h1>
+      <p class="lede">Software engineering student building backend systems, from defense space-operations infrastructure to distributed tracing tools.</p>
+      <p class="bio">I work on real-time data, latency, tracing, and satellite tracking. Two internships at National Defence Canada, one at the National Research Council Canada. BASc Software Engineering at the University of Ottawa, graduating Dec 2027.</p>
+      <p class="availability">Open to <strong>Summer 2027</strong> and <strong>Winter 2027</strong> software internships and co-ops in Ottawa, Toronto/GTA, or remote in Canada.</p>
+      <div class="actions">
+        <a class="button" href="tahatarkhaniresume.pdf" data-resume>Resume</a>
+        <span class="email">
+          <a href="mailto:ttarkhani111@gmail.com">ttarkhani111@gmail.com</a>
+          <button class="copy" type="button" data-copy="ttarkhani111@gmail.com" hidden>Copy</button>
+        </span>
+        <a href="https://github.com/ttarkhani">GitHub</a>
+        <a href="https://www.linkedin.com/in/ttarkhani">LinkedIn</a>
+      </div>
     </div>
-  </header>
+    <picture class="portrait">
+      <img src="assets/img/portrait-360.webp" srcset="assets/img/portrait-360.webp 360w, assets/img/portrait-720.webp 720w" sizes="(min-width: 760px) 280px, 104px" width="360" height="480" alt="Taha standing on shoreline rocks at sunset, pointing up at the sky over the water." fetchpriority="high">
+    </picture>
 
-  <section class="experience" id="experience">
-    <h2 class="section-title">Experience</h2>
+    <section class="results" aria-labelledby="results-title">
+      <h2 class="visually-hidden" id="results-title">Selected results</h2>
+      <dl>
+        <div class="result">
+          <dt>p99 latency on ground-station API endpoints, with Redis caching</dt>
+          <dd><span class="before">709ms</span> to <span class="after">under 100ms</span></dd>
+        </div>
+        <div class="result">
+          <dt>Peak PostgreSQL query time on satellite tracking data</dt>
+          <dd><span class="before">1,800ms</span> to <span class="after">210ms</span></dd>
+        </div>
+        <div class="result">
+          <dt>12K-record batch ingestion, with a bounded thread pool</dt>
+          <dd><span class="before">6.5 minutes</span> to <span class="after">95 seconds</span></dd>
+        </div>
+      </dl>
+    </section>
+  </section>
 
-    <div class="tab-row" role="tablist">
-      <button class="tab-btn active" role="tab" aria-selected="true" data-target="exp-dnd-2026" type="button">National Defence (2026)</button>
-      <button class="tab-btn" role="tab" aria-selected="false" data-target="exp-dnd-2025" type="button">National Defence (2025)</button>
-      <button class="tab-btn" role="tab" aria-selected="false" data-target="exp-nrc" type="button">National Research Council</button>
+  <section class="section wrap" id="experience" aria-labelledby="experience-title">
+    <div class="section-head">
+      <h2 id="experience-title">Experience</h2>
+      <p>Drawn to scale on one time axis, most recent first.</p>
     </div>
 
-    <div class="tab-panel active" role="tabpanel" id="exp-dnd-2026">
-      <h3>Software Engineer Intern</h3>
-      <span class="tab-meta">May 2026 – Aug 2026 · Ottawa, ON</span>
-      <ul class="tab-list">
-        <li>Built a Java/Spring Boot service streaming live orbital telemetry over WebSockets to 200+ concurrent analysts, sustaining sub-150ms end-to-end latency at 500+ updates/sec.</li>
-        <li>Accelerated a sequential satellite-tracking feed parser using a bounded ThreadPoolExecutor and in-memory queue, reducing 12K-record batch ingestion from 6.5 minutes to 95 seconds.</li>
-        <li>Implemented Redis caching for high-traffic ground-station API endpoints, decreasing p99 latency from 709ms to under 100ms while offloading repeat reads from the database.</li>
-        <li>Shipped React/TypeScript features for Space-COP, a military space dashboard: a Portal Requests card, a multi-view fullscreen mode, and 3 reusable filter components.</li>
-      </ul>
-    </div>
+    <div class="trace" style="--now: 20.97">
+      <div class="trace-axis" aria-hidden="true">
+        <span style="--at: 0">2025</span>
+        <span style="--at: 12">2026</span>
+        <span style="--at: 24">2027</span>
+        <span class="trace-now-label">now</span>
+      </div>
 
-    <div class="tab-panel" role="tabpanel" id="exp-dnd-2025">
-      <h3>Software Engineer Intern</h3>
-      <span class="tab-meta">Sep 2025 – Dec 2025 · Ottawa, ON</span>
-      <ul class="tab-list">
-        <li>Optimized PostgreSQL queries on satellite tracking data with composite indexes and monthly table partitioning, improving peak query execution time from 1,800ms to 210ms.</li>
-        <li>Automated the engineering team's deployments using a multi-stage GitLab CI/Docker pipeline, reducing a 25-minute manual release process to an 8-minute workflow.</li>
-        <li>Increased ingest-module test coverage from 18% to 62% using JUnit 5 and Testcontainers for PostgreSQL integration testing, catching coordinate-wraparound bugs before staging.</li>
-      </ul>
-    </div>
+      <article class="span-row is-next" style="--s: 24; --e: 32">
+        <header class="span-label">
+          <h3>Next</h3>
+          <p>Software internship or co-op</p>
+          <p class="when">Winter 2027 and Summer 2027</p>
+        </header>
+        <div class="span-track" aria-hidden="true">
+          <span class="span-bar" style="--s: 24; --e: 28"></span>
+          <span class="span-bar" style="--s: 28; --e: 32"></span>
+          <span class="span-dur">open</span>
+        </div>
+        <p class="span-note">Ottawa, Toronto/GTA, or remote in Canada. <a href="#contact">Get in touch</a>.</p>
+      </article>
 
-    <div class="tab-panel" role="tabpanel" id="exp-nrc">
-      <h3>Data Analyst Intern</h3>
-      <span class="tab-meta">Jan 2025 – Apr 2025 · Ottawa, ON</span>
-      <ul class="tab-list">
-        <li>Improved slow analytical joins across a PostgreSQL/MySQL research pipeline, optimizing daily query execution from 42 to 8 minutes for 15+ researchers.</li>
-        <li>Decreased the team's manual data-entry workload by 70% by automating research-dataset processing via Python ETL scripts.</li>
-        <li>Designed schema validation guards that quarantined malformed records, cutting weekly pipeline reruns by 88%.</li>
-      </ul>
+      <article class="span-row" style="--s: 16; --e: 20">
+        <header class="span-label">
+          <h3>National Defence Canada</h3>
+          <p>Software Engineer Intern</p>
+          <p class="when"><time datetime="2026-05">May 2026</time> – <time datetime="2026-08">Aug 2026</time></p>
+        </header>
+        <div class="span-track" aria-hidden="true"><span class="span-bar"></span><span class="span-dur">4 mo</span></div>
+        <ul class="span-log">
+          <li>Built a Java/Spring Boot service streaming live orbital telemetry over WebSockets to 200+ concurrent analysts, sustaining <b>sub-150ms end-to-end latency at 500+ updates/sec</b>.</li>
+          <li>Accelerated a sequential satellite-tracking feed parser using a bounded ThreadPoolExecutor and in-memory queue, reducing 12K-record batch ingestion from <b>6.5 minutes to 95 seconds</b>.</li>
+          <li>Implemented Redis caching for high-traffic ground-station API endpoints, decreasing <b>p99 latency from 709ms to under 100ms</b> while offloading repeat reads from the database.</li>
+          <li>Shipped React/TypeScript features for Space-COP, a military space dashboard: a Portal Requests card, a multi-view fullscreen mode, and 3 reusable filter components.</li>
+        </ul>
+      </article>
+
+      <article class="span-row" style="--s: 8; --e: 12">
+        <header class="span-label">
+          <h3>National Defence Canada</h3>
+          <p>Software Engineer Intern</p>
+          <p class="when"><time datetime="2025-09">Sep 2025</time> – <time datetime="2025-12">Dec 2025</time></p>
+        </header>
+        <div class="span-track" aria-hidden="true"><span class="span-bar"></span><span class="span-dur">4 mo</span></div>
+        <ul class="span-log">
+          <li>Optimized PostgreSQL queries on satellite tracking data with composite indexes and monthly table partitioning, improving peak query execution time from <b>1,800ms to 210ms</b>.</li>
+          <li>Automated the team’s deployments with a multi-stage GitLab CI/Docker pipeline, reducing a <b>25-minute manual release to 8 minutes</b>.</li>
+          <li>Increased ingest-module test coverage from <b>18% to 62%</b> using JUnit 5 and Testcontainers for PostgreSQL integration testing, catching coordinate-wraparound bugs before staging.</li>
+        </ul>
+      </article>
+
+      <article class="span-row" style="--s: 0; --e: 4">
+        <header class="span-label">
+          <h3>National Research Council Canada</h3>
+          <p>Data Analyst Intern</p>
+          <p class="when"><time datetime="2025-01">Jan 2025</time> – <time datetime="2025-04">Apr 2025</time></p>
+        </header>
+        <div class="span-track" aria-hidden="true"><span class="span-bar"></span><span class="span-dur">4 mo</span></div>
+        <ul class="span-log">
+          <li>Improved slow analytical joins across a PostgreSQL/MySQL research pipeline, cutting daily query execution from <b>42 to 8 minutes</b> for 15+ researchers.</li>
+          <li>Decreased the team’s manual data-entry workload by <b>70%</b> by automating research-dataset processing with Python ETL scripts.</li>
+          <li>Designed schema validation guards that quarantined malformed records, cutting weekly pipeline reruns by <b>88%</b>.</li>
+        </ul>
+      </article>
+      <p class="trace-foot">All roles in Ottawa, ON.</p>
     </div>
   </section>
 
-  <section class="projects" id="projects">
-    <h2 class="section-title">Projects</h2>
-
-    <div class="tab-row" role="tablist">
-      <button class="tab-btn active" role="tab" aria-selected="true" data-target="proj-lifts" type="button">Lifts</button>
-      <button class="tab-btn" role="tab" aria-selected="false" data-target="proj-tracer" type="button">Request Tracer</button>
-      <button class="tab-btn" role="tab" aria-selected="false" data-target="proj-orbit" type="button">Orbit Tracker</button>
-      <button class="tab-btn" role="tab" aria-selected="false" data-target="proj-cost" type="button">Cost Monitor</button>
+  <section class="section wrap" id="projects" aria-labelledby="projects-title">
+    <div class="section-head">
+      <h2 id="projects-title">Projects</h2>
+      <p>Screenshots are from the live apps.</p>
     </div>
 
-    <div class="tab-panel active" role="tabpanel" id="proj-lifts">
-      <div class="project-body">
-        <div>
-          <a class="project-link" href="https://lifts-mbjt.onrender.com/">View Live (2nd Place, MLH Hack The Hill)</a>
-          <a class="project-link" href="https://github.com/ttarkhani/lifts">View on GitHub</a>
-          <p class="project-desc">Launched a live peer-to-peer mentoring MVP mid-hackathon, driving organic adoption by 45+ teams to resolve technical blockers before the 36-hour deadline. Designed an append-only PostgreSQL/TimescaleDB ledger that records every state change, and secured private chats for 180+ users with Auth0 role-based access control (RBAC).</p>
-          <div class="tags"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>Auth0</span></div>
-        </div>
-        <svg class="sketch lifts-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
-          <rect x="25" y="15" width="30" height="20" rx="4" stroke="currentColor" stroke-width="2" />
-          <rect x="65" y="25" width="30" height="20" rx="4" stroke="currentColor" stroke-width="2" opacity="0.6" />
-          <path d="M55 25 L65 30" stroke="currentColor" stroke-width="2" stroke-dasharray="3" />
-        </svg>
+    <article class="project" aria-labelledby="p-lifts">
+      <div class="project-text">
+        <h3 id="p-lifts">Lifts</h3>
+        <p class="project-meta">2nd place, MLH Hack the Hill III · Sept 25–27, 2026 · Team of four</p>
+        <!-- TODO(Taha): confirm exactly which parts of Lifts you personally built (e.g. the ledger, Auth0 RBAC, the MVP launch) and adjust the wording below to match. -->
+        <p>Hackathon teams post a blocker, another team helps in a private thread, the blocked team confirms the fix, and the helpers earn points.</p>
+        <ul class="project-points">
+          <li>Launched a live peer-to-peer mentoring MVP mid-hackathon, driving adoption by <b>45+ teams</b> to resolve blockers before the 36-hour deadline.</li>
+          <li>Designed an append-only PostgreSQL/TimescaleDB ledger that records every state change, and secured private chats for <b>180+ users</b> with Auth0 RBAC.</li>
+        </ul>
+        <p class="stack">Next.js · TypeScript · PostgreSQL/TimescaleDB · Auth0</p>
+        <p class="project-links">
+          <a href="https://lifts-mbjt.onrender.com/demo">Live demo<span class="visually-hidden"> of Lifts</span></a>
+          <a href="https://github.com/ttarkhani/lifts">Code<span class="visually-hidden"> for Lifts on GitHub</span></a>
+        </p>
+        <p class="project-hint">No login needed for the demo. It runs on a free tier, so the first load can take about a minute.</p>
       </div>
-    </div>
-
-    <div class="tab-panel" role="tabpanel" id="proj-tracer">
-      <div class="project-body">
-        <div>
-          <a class="project-link" href="https://request-tracer.vercel.app/">View Live</a>
-          <a class="project-link" href="https://github.com/ttarkhani/request-tracer">View on GitHub</a>
-          <p class="project-desc">Engineered end-to-end correlation-ID propagation across 4 Spring Boot services, ensuring Gateway, Orders, and Inventory logs share a unified trace ID in the Log Aggregator. Containerized the microservice architecture via Docker Compose and created a React dashboard to visualize live trace waterfall timelines, isolating a 1.6s cold-start anomaly.</p>
-          <div class="tags"><span>Java</span><span>Spring Boot</span><span>React</span><span>Docker</span></div>
+      <figure class="shot">
+        <div class="shot-frame">
+          <img src="assets/img/lifts-640.webp" srcset="assets/img/lifts-640.webp 640w, assets/img/lifts-1200.webp 1200w" sizes="(min-width: 1180px) 600px, (min-width: 900px) 52vw, calc(100vw - 32px)" width="1200" height="750" loading="lazy" decoding="async" alt="The Lifts demo board: open blockers from invented hackathon teams, each with a title, team and table, posting time, and tags such as docker and auth.">
+          <img class="shot-mobile" src="assets/img/lifts-mobile.webp" width="300" height="649" loading="lazy" decoding="async" alt="">
         </div>
-        <svg class="sketch tracer-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
-          <line class="bar1" x1="8" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-          <line class="bar2" x1="22" y1="30" x2="112" y2="30" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
-          <line class="bar3" x1="36" y1="48" x2="66" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
-        </svg>
-      </div>
-    </div>
+        <figcaption>lifts-mbjt.onrender.com/demo/board</figcaption>
+      </figure>
+    </article>
 
-    <div class="tab-panel" role="tabpanel" id="proj-orbit">
-      <div class="project-body">
-        <div>
-          <a class="project-link" href="https://orbit-tracker-coral.vercel.app/">View Live</a>
-          <a class="project-link" href="https://github.com/ttarkhani/orbit-tracker">View on GitHub</a>
-          <p class="project-desc">Developed a Python service tracking 30 live satellites from CelesTrak data using Skyfield's SGP4 propagation, yielding positional accuracy within 0.02% of known GOES-16 altitudes. Built a pass-prediction REST API with an interactive globe front end (globe.gl), caching TLE data to accelerate repeat lookup times from 2.4s to under 10ms.</p>
-          <div class="tags"><span>Python</span><span>Flask</span><span>Skyfield</span><span>globe.gl</span></div>
+    <article class="project" aria-labelledby="p-tracer">
+      <div class="project-text">
+        <h3 id="p-tracer">Request Tracer</h3>
+        <p class="project-meta">Distributed tracing across microservices</p>
+        <p>Correlation-ID propagation across 4 Spring Boot services, so Gateway, Orders, and Inventory logs share one trace ID in a Log Aggregator.</p>
+        <ul class="project-points">
+          <li>React dashboard with live trace waterfall timelines that isolated a <b>1.6s cold-start anomaly</b>.</li>
+          <li>The whole stack runs locally with Docker Compose.</li>
+        </ul>
+        <p class="stack">Java · Spring Boot · React · Docker · REST APIs</p>
+        <p class="project-links">
+          <a href="https://request-tracer.vercel.app/">Live demo<span class="visually-hidden"> of Request Tracer</span></a>
+          <a href="https://github.com/ttarkhani/request-tracer">Code<span class="visually-hidden"> for Request Tracer on GitHub</span></a>
+        </p>
+      </div>
+      <figure class="shot">
+        <div class="shot-frame">
+          <img src="assets/img/tracer-640.webp" srcset="assets/img/tracer-640.webp 640w, assets/img/tracer-1200.webp 1200w" sizes="(min-width: 1180px) 600px, (min-width: 900px) 52vw, calc(100vw - 32px)" width="1200" height="750" loading="lazy" decoding="async" alt="The Request Tracer dashboard showing one sample trace as a waterfall: api-gateway 160ms, orders-service 149ms, inventory-service 34ms, with the log entries below.">
+          <img class="shot-mobile" src="assets/img/tracer-mobile.webp" width="300" height="649" loading="lazy" decoding="async" alt="">
         </div>
-        <svg class="sketch orbit-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
-          <ellipse cx="60" cy="30" rx="48" ry="19" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-          <circle cx="60" cy="30" r="4" fill="currentColor" opacity="0.35"/>
-          <circle class="orbit-dot" r="3.2" fill="currentColor"/>
-        </svg>
-      </div>
-    </div>
+        <figcaption>request-tracer.vercel.app</figcaption>
+      </figure>
+    </article>
 
-    <div class="tab-panel" role="tabpanel" id="proj-cost">
-      <div class="project-body">
-        <div>
-          <a class="project-link" href="https://github.com/ttarkhani/cost-monitor">View on GitHub</a>
-          <p class="project-desc">An AWS cost monitoring dashboard that ingests billing data via the Cost Explorer API and persists daily snapshots in DynamoDB. Anomaly detection was validated against test data — correctly distinguishing a 2.9% fluctuation from an 83.2% spike — with an in-memory cache achieving 0.0ms cache-hit response times.</p>
-          <div class="tags"><span>Python</span><span>Flask</span><span>AWS Cost Explorer</span><span>DynamoDB</span></div>
+    <article class="project" aria-labelledby="p-orbit">
+      <div class="project-text">
+        <h3 id="p-orbit">Orbit Tracker</h3>
+        <p class="project-meta">Live satellite positions and pass prediction</p>
+        <p>Python service tracking 30 live satellites from CelesTrak data with Skyfield SGP4, within <b>0.02%</b> of known GOES-16 altitudes.</p>
+        <ul class="project-points">
+          <li>Pass-prediction REST API with an interactive globe built on globe.gl.</li>
+          <li>TLE caching cut repeat lookups from <b>2.4s to under 10ms</b>.</li>
+        </ul>
+        <p class="stack">Python · Flask · Skyfield · globe.gl · REST APIs</p>
+        <p class="project-links">
+          <a href="https://orbit-tracker-coral.vercel.app/">Live demo<span class="visually-hidden"> of Orbit Tracker</span></a>
+          <a href="https://github.com/ttarkhani/orbit-tracker">Code<span class="visually-hidden"> for Orbit Tracker on GitHub</span></a>
+        </p>
+      </div>
+      <figure class="shot">
+        <div class="shot-frame">
+          <img src="assets/img/orbit-640.webp" srcset="assets/img/orbit-640.webp 640w, assets/img/orbit-1200.webp 1200w" sizes="(min-width: 1180px) 600px, (min-width: 900px) 52vw, calc(100vw - 32px)" width="1200" height="750" loading="lazy" decoding="async" alt="Orbit Tracker: a 3D Earth with satellite positions marked around it, beside a panel listing upcoming passes for a chosen latitude and longitude.">
+          <img class="shot-mobile" src="assets/img/orbit-mobile.webp" width="300" height="649" loading="lazy" decoding="async" alt="">
         </div>
-        <svg class="sketch cost-sketch" viewBox="0 0 120 60" fill="none" aria-hidden="true">
-          <polyline points="8,46 28,32 46,38 64,20 82,24 100,14 112,16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-        </svg>
-      </div>
-    </div>
+        <figcaption>orbit-tracker-coral.vercel.app</figcaption>
+      </figure>
+    </article>
 
+    <article class="project project--text" aria-labelledby="p-cost">
+      <div class="project-text">
+        <h3 id="p-cost">Cost Monitor</h3>
+        <p class="project-meta">Code only, no live deployment</p>
+        <p>AWS cost dashboard using the Cost Explorer API, with daily snapshots stored in DynamoDB.</p>
+        <ul class="project-points">
+          <li>Anomaly detection validated against test data, distinguishing a <b>2.9% fluctuation</b> from an <b>83.2% spike</b>.</li>
+          <li>In-memory cache with <b>0.0ms</b> cache-hit response times.</li>
+        </ul>
+        <p class="stack">Python · Flask · AWS Cost Explorer · DynamoDB</p>
+        <p class="project-links">
+          <a href="https://github.com/ttarkhani/cost-monitor">Code<span class="visually-hidden"> for Cost Monitor on GitHub</span></a>
+        </p>
+      </div>
+    </article>
   </section>
 
-  <footer>
-    <span>© 2026 Taha Tarkhani</span>
-    <a href="mailto:ttarkhani111@gmail.com">ttarkhani111@gmail.com</a>
-  </footer>
+  <section class="section wrap background" id="skills" aria-labelledby="skills-title">
+    <div>
+      <h2 id="skills-title">Skills</h2>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>Java, Python, TypeScript, JavaScript, SQL, C++, C#, HTML/CSS</dd></div>
+        <div><dt>Frameworks</dt><dd>Spring Boot, React, Next.js, Node.js, Flask, REST APIs</dd></div>
+        <div><dt>Databases</dt><dd>PostgreSQL, MySQL, Redis, TimescaleDB, DynamoDB</dd></div>
+        <div><dt>Tools</dt><dd>Git, Docker, GitLab CI/CD, GitHub Actions, AWS (Boto3), JUnit, Testcontainers, Jest</dd></div>
+      </dl>
+    </div>
+    <div>
+      <h2 id="education-title">Education</h2>
+      <p class="edu-school">University of Ottawa</p>
+      <p>BASc Software Engineering</p>
+      <p class="when">Expected Dec 2027</p>
+      <p class="edu-course">Coursework: Data Structures and Algorithms, Operating Systems, Object Oriented Programming.</p>
+    </div>
+  </section>
+
+  <section class="section wrap contact" id="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact</h2>
+    <p class="contact-lede">I’m looking for Summer 2027 and Winter 2027 software internships and co-ops in Ottawa, Toronto/GTA, or remote in Canada. Email reaches me fastest.</p>
+    <div class="actions">
+      <span class="email email--large">
+        <a href="mailto:ttarkhani111@gmail.com">ttarkhani111@gmail.com</a>
+        <button class="copy" type="button" data-copy="ttarkhani111@gmail.com" hidden>Copy</button>
+      </span>
+    </div>
+    <ul class="contact-links">
+      <li><a href="tahatarkhaniresume.pdf" data-resume>Resume (PDF)</a></li>
+      <li><a href="https://github.com/ttarkhani">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ttarkhani">LinkedIn</a></li>
+    </ul>
+  </section>
 
 </main>
 
-<div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Resume viewer">
-  <div class="resume-modal-inner">
-    <div class="resume-modal-header">
-      <span>Resume</span>
-      <div class="resume-modal-actions">
-        <a href="tahatarkhaniresume.pdf" download class="resume-download-btn">Download</a>
-        <button class="resume-modal-close" id="resumeModalClose" aria-label="Close resume viewer" type="button">✕</button>
-      </div>
-    </div>
-    <iframe id="resumeIframe" class="resume-iframe" title="Taha Tarkhani Resume"></iframe>
+<footer class="site-footer wrap">
+  <p>© 2026 Taha Tarkhani · Ottawa, ON</p>
+  <p>Static HTML and CSS. No trackers.</p>
+</footer>
+
+<p class="visually-hidden" id="copy-status" role="status" aria-live="polite"></p>
+
+<dialog class="resume" id="resume-dialog" aria-labelledby="resume-title">
+  <div class="resume-bar">
+    <h2 id="resume-title">Resume</h2>
+    <a href="tahatarkhaniresume.pdf" download>Download PDF</a>
+    <a href="tahatarkhaniresume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+    <button type="button" class="resume-close" data-close aria-label="Close resume">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
   </div>
-</div>
+  <iframe class="resume-frame" title="Taha Tarkhani’s resume (PDF)"></iframe>
+</dialog>
 
-<script src="script.js"></script>
-
+<script src="script.js" defer></script>
 </body>
 </html>
