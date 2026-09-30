@@ -357,8 +357,8 @@ h3 { font-size: 1.1875rem; font-weight: 600; line-height: 1.3; letter-spacing: -
 .resume[open] { display: flex; flex-direction: column; }
 .resume::backdrop { background: rgb(8 10 14 / 0.62); }
 .resume-bar {
-  display: flex; align-items: center; flex-wrap: wrap; gap: 4px 18px;
-  padding: 8px 8px 8px 18px; border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 16px;
+  padding: 8px 8px 8px 16px; border-bottom: 1px solid var(--rule);
 }
 .resume-bar h2 { font-size: 1.0625rem; font-weight: 600; margin-right: auto; }
 .resume-bar a { font-size: 0.9375rem; padding-block: 8px; }

@@ -9,7 +9,6 @@
       var t = localStorage.getItem('theme');
       if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
     } catch (e) {}
-    document.documentElement.classList.add('js');
   })();
 </script>
 <title>Taha Tarkhani · Backend software engineering student, Ottawa</title>
@@ -338,8 +337,8 @@
 <dialog class="resume" id="resume-dialog" aria-labelledby="resume-title">
   <div class="resume-bar">
     <h2 id="resume-title">Resume</h2>
-    <a href="tahatarkhaniresume.pdf" download>Download PDF</a>
-    <a href="tahatarkhaniresume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+    <a href="tahatarkhaniresume.pdf" download>Download<span class="visually-hidden"> resume PDF</span></a>
+    <a href="tahatarkhaniresume.pdf" target="_blank" rel="noopener">New tab<span class="visually-hidden">: open resume in a new tab</span></a>
     <button type="button" class="resume-close" data-close aria-label="Close resume">
       <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
     </button>
