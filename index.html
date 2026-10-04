@@ -253,14 +253,13 @@
     <article class="project project--text" aria-labelledby="p-cost">
       <div class="project-text">
         <h3 id="p-cost">Cost Monitor</h3>
-        <p class="project-meta">Runs locally · Deploying soon</p>
-        <p>AWS cost dashboard using the Cost Explorer API, with daily snapshots stored in DynamoDB.</p>
-        <p>You can run it locally today; all the setup instructions are in the GitHub repository. I’ll deploy it once it’s fully ready.</p>
+        <p class="project-meta">Serverless AWS cost anomaly detection</p>
+        <p>AWS cost monitoring with a scheduled Lambda pipeline, a modified z-score anomaly detector, and a Flask dashboard.</p>
         <ul class="project-points">
-          <li>Anomaly detection validated against test data, distinguishing a <b>2.9% fluctuation</b> from an <b>83.2% spike</b>.</li>
-          <li>In-memory cache with <b>0.0ms</b> cache-hit response times.</li>
+          <li>Built a serverless AWS cost monitor: an EventBridge-scheduled Lambda ingests Cost Explorer data into DynamoDB daily and emails anomaly alerts through SNS under a least-privilege IAM role, with a public Vercel demo on clearly labeled synthetic data.</li>
+          <li>Implemented per-service anomaly detection (modified z-score on median/MAD) in pure Python, validated on synthetic ground-truth suites: <b>0 false positives and 0 false negatives</b> over 38 aggregate judgments; <b>0.857 precision and 1.000 recall</b> over 164 per-service ones.</li>
         </ul>
-        <p class="stack">Python · Flask · AWS Cost Explorer · DynamoDB</p>
+        <p class="stack">Python · Flask · AWS Lambda · DynamoDB · SNS</p>
         <p class="project-links">
           <a href="https://github.com/ttarkhani/cost-monitor">Code<span class="visually-hidden"> for Cost Monitor on GitHub</span></a>
         </p>
